@@ -21,8 +21,8 @@ public final class BluetoothTank implements Runnable
 
     public interface Listener
     {
-        void onBluetoothTankShellConnected(BluetoothTank shell);
-        void onBluetoothTankShellDisconnected(BluetoothTank shell);
+        void onBluetoothTankConnected(BluetoothTank tank);
+        void onBluetoothTankDisconnected(BluetoothTank tank);
     }
 
 
@@ -107,7 +107,7 @@ public final class BluetoothTank implements Runnable
             final BluetoothDevice bluetoothDevice = findPairedTank();
             if ( bluetoothDevice == null )
             {
-                Log.d(TAG, "run: Device not paired (HC-06)");
+                Log.d(TAG, "run: Device '" + mWantedDeviceName + "'not paired");
                 continue;
             }
 
@@ -129,7 +129,7 @@ public final class BluetoothTank implements Runnable
             }
 
             Log.d(TAG, "run: Connected");
-            mListener.onBluetoothTankShellConnected(this);
+            mListener.onBluetoothTankConnected(this);
 
             try
             {
@@ -154,7 +154,7 @@ public final class BluetoothTank implements Runnable
             {
                 try { mSocket.close(); } catch (IOException ignored) {}
                 mSocket = null;
-                mListener.onBluetoothTankShellDisconnected(this);
+                mListener.onBluetoothTankDisconnected(this);
             }
         }
 
