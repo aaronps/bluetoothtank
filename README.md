@@ -9,7 +9,7 @@ communication on Android.
 
 Simple demo @ [bluetoothtank-demo].
 
-Demo with touchjoystick @ [mbtjoy-demo].
+Demo with [touchjoystick] @ [mbtjoy-demo].
 
 ## Usage
 
@@ -42,3 +42,5 @@ protocol on some files provided, it is a very simple text protocol.
 
 [bluetoothtank-demo]: https://github.com/aaronps/bluetoothtank-demo.git
 [mbtjoy-demo]: https://github.com/aaronps/mbtjoy-demo.git
+[touchjoystick]: https://github.com/aaronps/touchjoystick.git
+
